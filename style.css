@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cordotexto: white;
+  --caminhourl: url(./assets/Background_mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --icones-brackground: rgba(255, 255, 255, 0.2);
+  --switch-url: url(assets/handle.svg);
+}
+
+.light {
+  --cordotexto: black;
+  --caminhourl: url(./assets/foto_branca.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --icones-brackground: rgba(0, 0, 0, 0.1);
+  --switch-url: url(assets/handle_ligth.svg);
+}
+
+body {
+  background: var(--caminhourl) no-repeat top center/cover;
+  height: 100%;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--cordotexto);
+}
+
+#container {
+  width: 100% ;
+  max-width: 558px;
+  margin: 56px auto 0px;
+  padding: 24px;
+}
+
+#profile img {
+  border: 1px solid var(--stroke-color);
+  border-radius: 112px;
+  width: 112px;
+  height: 111px;
+  display: block;
+  margin: auto;
+}
+
+p {
+  text-align: center;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+  padding: 0 24px 24px;
+}
+
+.switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+  
+}
+
+.switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-url) no-repeat center;
+  border: none;
+  cursor: pointer;
+
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left:  0;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  animation: slide-back 0.4s;
+
+}
+
+.switch button:hover{
+  outline: 8px solid var(--icones-brackground);
+}
+
+.switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+}
+
+.light .switch button {
+  
+  animation: slide-in 0.4s forwards;
+}
+
+.links {
+  margin-top: 24px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--cordotexto);
+}
+
+.icones {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  font-size: 24px;
+}
+
+.icones a {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.icones a:hover {
+  border: none;
+  background: var(--icones-brackground);
+}
+
+footer p {
+  text-align: center;
+  font-size: 14px;
+}
+
+/*quando a largura for maior que 700px, faça o que está dentro do @media*/
+@media (min-width: 700px){
+  :root{
+    --caminhourl: url(assets/bg-desktop-dark.jpg) ;
+    
+  }
+  .light{
+    --caminhourl: url(assets/bg-desktop-light.jpg) ;
+    
+  }
+}
+
+@keyframes slide-in{
+
+  from{
+    left: 0;
+  }
+
+  to{
+    left: 50%;
+  }
+}
+
+@keyframes slide-back{
+  from {
+    left: 50%;
+  }
+
+  to{
+    left: 0;
+  }
+}
